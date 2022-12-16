@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url("../assets/fonts/RobotoSlab.ttf");
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url("../assets/fonts/icons/MaterialIcons-Regular.ttf") format('truetype');
+}
+
+:root {
+    --primary: crimson;
+    --primary: #346AFF;
+    --primary-dark: #111116;
+    --secondary-dark: #1B1B1F;
+    --primary-font-color: #C3C3C3;
+    --primary-font-family: "RobotoSlab";
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+    color: var(--primary-font-color);
+    background-color: var(--primary-dark);
+    font-family: var(--primary-font-family) !important;
+}
+
+h5,h6, h4, span {
+    font-family: var(--primary-font-family) !important;
+}
+
+input { border: none !important; }
+
+section { min-height: 50vh; }
+
+img { object-fit: contain; }
+
+select {
+    background-color: var(--primary-dark) !important;
+    padding: 10px 0 !important;
+    padding-left: 30px !important;
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+    color: white !important;
+    background: #151519 !important;
+    border-radius: 14px;
+    border: 0;
+}
+
+.header-container {
+    min-height: 50px;
+    border-radius: 10px;
+    background-color: var(--primary);
+}
+
+.content-box {
+    padding: 20px 40px;
+    border-radius: 28px;
+    height: 350px;
+    background-color: var(--secondary-dark);
+}
+
+.btn-primary {
+    height: 50px;
+    min-width: 180px;
+    border-radius: 48px;
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}

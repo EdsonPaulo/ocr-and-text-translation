@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR + Tradutor v1 - Edson Gregorio</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+    <main class="container py-4">
+        <header class="header-container py-2 mb-5 d-flex justify-content-center align-items-center flex-column">
+            <h6 class="text-white">OCR + Tradutor v1.0</h6>
+            <span class="text-white">Edson Gregorio - 20973</span>
+        </header>
+        <br>
+        <section class="my-5">
+            <h4 class="my-4">OCR - Reconhecimento de texto na imagem</h4>
+
+            <div id="error-alert" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+                <span>Não conseguimos reconhecer texto na imagem selecionada, tente outra imagem!</span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <div class="input-group mb-5 w-75">
+                    <input type="file" id="input-file-ocr" class="form-control bg-dark text-white border-0">
+
+                    <button id="btn-start-ocr" class="btn btn-primary" style="height: auto; min-width: 150px">
+                        Iniciar reconhecimento
+                    </button>
+                </div>
+                <div id="loading-spinner" class="spinner-border text-primary d-none" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row my-3">
+                <div class="content-box me-md-3 mb-3 d-flex align-items-center justify-content-center col-12 col-md-6">
+                    <img id="img-for-ocr" width="200" height="200" src="assets/images/image-placeholder.png"
+                        class="col-12">
+                </div>
+
+                <div class="content-box ms-md-3 mt-3 mt-md-0 col-12 col-md-6">
+                    <textarea id="ocr-textarea" disabled rows="10" class="w-100 h-100 p-1"></textarea>
+                </div>
+            </div>
+
+            <button id="btn-goto-translator" class="btn btn-primary float-end">
+                Traduzir texto capturado
+            </button>
+        </section>
+
+        <section id="tradutor" class="my-5 py-5">
+            <h5 class="my-4">Tradutor</h5>
+
+            <div class="d-flex flex-column flex-md-row my-3 ">
+                <div class="content-box me-md-3 mb-3 col-12 col-md-6">
+                    <div class="mb-3 d-flex align-items-center">
+                        <span>De: </span>
+                        <select id="from-language-select" class="ms-3 form-select rounded-pill text-white border-0 ">
+                            <option value="en" selected>INGLÊS</option>
+                            <option value="pt">PORTUGUÊS</option>
+                            <option value="de">ALEMÃO</option>
+                        </select>
+                    </div>
+                    <textarea id="from-language-textarea" rows="10" class="w-100 text-white p-1"></textarea>
+                </div>
+
+                <div class="content-box ms-md-3 mt-3 mt-md-0 col-12 col-md-6">
+                    <div class="mb-3 d-flex align-items-center">
+                        <span>Para: </span>
+                        <select id="to-language-select" class="ms-3 form-select rounded-pill text-white border-0 ">
+                            <option value="pt" selected>PORTUGUÊS</option>
+                            <option value="en">INGLÊS</option>
+                            <option value="de">ALEMÃO</option>
+                        </select>
+                    </div>
+                    <textarea disabled id="to-language-textarea" rows="10" class="w-100 h-75 p-1"></textarea>
+                </div>
+            </div>
+            <div class="text-center">
+                <button id="btn-translate" class="btn btn-primary">
+                    Traduzir
+                </button>
+            </div>
+        </section>
+
+        <footer class="text-center mb-2">
+            <span>Todos os direitos reservados</span><br>
+            <span>Desenvolvido por Edson Gregorio</span>
+        </footer>
+    </main>
+
+    <!-- scripts -->
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+    <script src="lib/tesseract.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+</body>
+
+</html>
