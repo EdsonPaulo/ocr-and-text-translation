@@ -8,7 +8,7 @@ const translateText = async (textToTranslate, fromLang, toLang) => {
             textToTranslate
         )}`;
         const res = await (await fetch(url)).json()
-        return res[0]?.map?.((item) => item[0]).join("");
+        return res[0]?.map?.((item) => item[0]).join("") || '';
     } catch (error) {
         console.log(error)
     }
