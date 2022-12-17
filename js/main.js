@@ -100,3 +100,10 @@ btnDownload.onclick = async () => {
         a.click();
     }
 }
+
+
+toLanguageSelect.onchange = async () => {
+    if (fromLangTextarea.value) {
+        toLangTextarea.value = await translateText(fromLangTextarea.value, fromLanguageSelect.value, toLanguageSelect.value);
+    }
+}
