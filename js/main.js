@@ -8,6 +8,7 @@ const errorAlert = document.getElementById('error-alert')
 const btnStartOcr = document.getElementById('btn-start-ocr')
 const btnGoToTranslator = document.getElementById('btn-goto-translator')
 const btnTranslate = document.getElementById('btn-translate')
+const btnDownload = document.getElementById('btn-download')
 
 const recognizedText = document.getElementById('ocr-textarea')
 const fromLangTextarea = document.getElementById('from-language-textarea')
@@ -55,10 +56,10 @@ btnStartOcr.onclick = () => {
             btnStartOcr.disabled = false;
             btnGoToTranslator.disabled = false;
             btnTranslate.disabled = false;
+            toLangTextarea.value = ''
+            btnDownload.classList.add('d-none')
         })
 }
-
-
 
 // Go to translator section
 btnGoToTranslator.onclick = () => {
@@ -72,18 +73,30 @@ btnGoToTranslator.onclick = () => {
 }
 
 // Start translation
-btnTranslate.onclick = () => {
+btnTranslate.onclick = async () => {
     if (!inputFile.files[0] || !recognizedText.value) {
         alert('Selecione uma imagem primeiro e clique em iniciar reconhecimento')
         return
     }
-    toLangTextarea.value = translateText(fromLangTextarea.value, toLanguageSelect.value, fromLanguageSelect.value);
+    toLangTextarea.value = await translateText(fromLangTextarea.value, fromLanguageSelect.value, toLanguageSelect.value);
+    btnDownload.classList.remove('d-none')
 }
 
 // limit in 5000 char
-fromLangTextarea.addEventListener("input", (e) => {
-    if (fromLangTextarea.value.length > 10) {
-        fromLangTextarea.value = fromLangTextarea.value.slice(0, 10);
+fromLangTextarea.addEventListener("input", async (e) => {
+    if (fromLangTextarea.value.length > 5000) {
+        fromLangTextarea.value = fromLangTextarea.value.slice(0, 5000);
     }
-    toLangTextarea.value = translateText(fromLangTextarea.value, toLanguageSelect.value, fromLanguageSelect.value);
+    toLangTextarea.value = await translateText(fromLangTextarea.value, fromLanguageSelect.value, toLanguageSelect.value);
 });
+
+btnDownload.onclick = async () => {
+    if (toLangTextarea.value) {
+        const blob = new Blob([toLangTextarea.value], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.download = `traduzido-de-${fromLanguageSelect.value}-para-${toLanguageSelect.value}.txt`;
+        a.href = url;
+        a.click();
+    }
+}

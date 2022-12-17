@@ -15,8 +15,8 @@
 <body>
     <main class="container py-4">
         <header class="header-container py-2 mb-5 d-flex justify-content-center align-items-center flex-column">
-            <h6 class="text-white">OCR + Tradutor v1.0</h6>
-            <span class="text-white">Edson Gregorio - 20973</span>
+            <span class="text-white">OCR + Tradutor v1.0</span>
+            <span class="text-white">by Edson Gregorio - 20973</span>
         </header>
         <br>
         <section class="my-5">
@@ -56,7 +56,7 @@
         </section>
 
         <section id="tradutor" class="my-5 py-5">
-            <h5 class="my-4">Tradutor</h5>
+            <h4 class="my-4">Tradutor</h4>
 
             <div class="d-flex flex-column flex-md-row my-3 ">
                 <div class="content-box me-md-3 mb-3 col-12 col-md-6">
@@ -64,23 +64,37 @@
                         <span>De: </span>
                         <select id="from-language-select" class="ms-3 form-select rounded-pill text-white border-0 ">
                             <option value="en" selected>INGLÊS</option>
-                            <option value="pt">PORTUGUÊS</option>
+                            <option value="fr">FRANCÊS</option>
+                            <option value="it">ITALIANO</option>
+                            <option value="es">ESPANHOL</option>
+                            <option value="ja">JAPONÊS</option>
+                            <option value="ar">ÁRABE</option>
                             <option value="de">ALEMÃO</option>
+                            <option value="pt">PORTUGUÊS</option>
                         </select>
                     </div>
                     <textarea id="from-language-textarea" rows="10" class="w-100 text-white p-1"></textarea>
                 </div>
 
-                <div class="content-box ms-md-3 mt-3 mt-md-0 col-12 col-md-6">
+                <div class="content-box ms-md-3 mt-3 mt-md-0 col-12 col-md-6 position-relative">
                     <div class="mb-3 d-flex align-items-center">
                         <span>Para: </span>
                         <select id="to-language-select" class="ms-3 form-select rounded-pill text-white border-0 ">
                             <option value="pt" selected>PORTUGUÊS</option>
-                            <option value="en">INGLÊS</option>
+                            <option value="fr">FRANCÊS</option>
+                            <option value="it">ITALIANO</option>
+                            <option value="es">ESPANHOL</option>
+                            <option value="ja">JAPONÊS</option>
+                            <option value="ar">ÁRABE</option>
                             <option value="de">ALEMÃO</option>
+                            <option value="en">INGLÊS</option>
                         </select>
                     </div>
                     <textarea disabled id="to-language-textarea" rows="10" class="w-100 h-75 p-1"></textarea>
+                    <button id="btn-download" class="btn btn-light btn-sm position-absolute d-none"
+                        style="bottom: 5px; right: 42%">
+                        Baixar
+                    </button>
                 </div>
             </div>
             <div class="text-center">
